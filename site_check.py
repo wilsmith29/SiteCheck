@@ -14,9 +14,12 @@ status = check_site_status(url)
 
 if 200 <= status < 300:
    #run_tests(url)
-   print("Website active")
+   print(f"Website active. Status: {status}")
 
 else:
-   print("Website is down, cannot run tests")
+   print(f"Website is down, cannot run tests. Status: {status}")
+
+with open("results.txt", "a") as f:
+    f.write(f"{url} - {status}\n")
 
 
